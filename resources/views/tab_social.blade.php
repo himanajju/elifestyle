@@ -1,91 +1,47 @@
 <div id="social" class="col s12">
   <!--facebook-->
   <div class="row">
-<div class="col s12 m4 l3">
+<!--perschool-->
+<div class="col s6 m2 l2">
 <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://dl2.pushbulletusercontent.com/R79oSClgbvzEfNcvJqirqY1PaKZaKTNf/fb.png">
+      <img class="activator" src="https://dl2.pushbulletusercontent.com/XwAueTHf9aHRaRCSY8A8YxNJQcl4f2oj/IMG_20171016_211715.jpg">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">FaceBook<i class="material-icons right">more_vert</i></span>
+      <span class="app-card-title card-title activator grey-text text-darken-4">Preschool</span>
+      <div class="tag green-text"><small>( FREE )</small></div>
       
-      <p><a class="waves-effect waves-light btn modal-trigger" href="#modal1">Install</a></p><p> 
-      <span class="new badge green" data-badge-caption="FREE"></span></p>
-      
+      <span><a class="waves-effect waves-light btn-small btn modal-trigger" href="#preschool">Install</a></span>
+     
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">FaceBook<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      <span class="card-title grey-text text-darken-4">Preschool<i class="material-icons right">close</i></span>
+      <p>Lets learn something</p>
     </div>
   </div>
   </div>
 
 
-<!--twitter-->
-<div class="col s12 m4 l3">
-<div class="card ">
+<!--maths tariner-->
+<div class="col s6 m2 l2">
+<div class="card">
     <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://dl2.pushbulletusercontent.com/ZP1AuMJaa6VztjfysTrnBHBGesETytjl/twitter.png">
+      <img class="activator" src="https://dl2.pushbulletusercontent.com/9jQ0aw5V0jp9p7SZZ4eUigAiMOq4YHvp/mathstrainer.png">
     </div>
     <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Twitter<i class="material-icons right">more_vert</i></span>
+      <span class="app-card-title card-title activator grey-text text-darken-4">Maths Trainer</span>
+      <div class="tag green-text"><small>( FREE )</small></div>
       
-      <p><a class="waves-effect waves-light btn modal-trigger disabled" href="#modal1">Install</a></p><p> 
-      <span class="new badge  grey darken-2" data-badge-caption="IN PROGREE"></span></p>
-      
+      <span><a class="waves-effect waves-light btn-small btn modal-trigger" href="#mathstrainer">Install</a></span>
+     
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Twitter<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
+      <span class="card-title grey-text text-darken-4">Maths Trainer<i class="material-icons right">close</i></span>
+      <p>it will trainer maths.</p>
     </div>
   </div>
   </div>
-
-<!--insta-->
-<div class="col s12 m4 l3">
-<div class="card ">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://dl2.pushbulletusercontent.com/rGkJFt2WR3oMyg4AQc3GjXQBZz0zCB7P/insta.png">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Instagram<i class="material-icons right">more_vert</i></span>
-      
-      <p><a class="waves-effect waves-light btn modal-trigger disabled" href="#modal1">Install</a></p><p> 
-      <span class="new badge red accent-4" data-badge-caption="NOT IN PLAN"></span></p>
-      
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Instagram<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-  </div>
-
-
-<!--whatapp-->
-
-  <div class="col s12 m4 l3">
-<div class="card ">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="https://cdn0.iconfinder.com/data/icons/social-flat-rounded-rects/512/whatsapp-512.png">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">WhatsApp<i class="material-icons right">more_vert</i></span>
-      
-      <p><a class="waves-effect waves-light btn modal-trigger disabled" href="#modal1">Install</a></p><p> 
-      <span class="new badge red accent-4" data-badge-caption="NOT IN PLAN"></span></p>
-      
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">WhatsApp<i class="material-icons right">close</i></span>
-      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-    </div>
-  </div>
-  </div>
-
 </div>
-
-
 <!--modal-->
 <div id="modal2" class="modal modal-fixed-footer">
     <div class="modal-content">

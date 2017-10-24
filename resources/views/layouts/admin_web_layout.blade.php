@@ -1,0 +1,5 @@
+@include('admin_includes/header')
+@include('admin_includes/nav_top')
+@include('admin_includes/nav_left')
+@yield('content')
+@include('admin_includes/footer')

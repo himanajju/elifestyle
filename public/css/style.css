@@ -1,0 +1,28 @@
+.pageSection{
+}
+
+.btn-small{
+    height: 26px;
+    line-height: 26px;
+    padding: 0 0.5rem;
+}
+.card .card-content {
+    padding: 10px;
+}
+
+.card .card-title {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.card-content .tag {
+    
+    margin-top: -10px;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+.card .card-content .card-title{
+    margin-bottom: 0px;
+
+}
