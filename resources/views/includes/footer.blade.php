@@ -26,13 +26,23 @@
             </div>
           </div>
         </footer>
+<script type="text/javascript" src="{{ url::asset('angularjs/front-app.js') }}"></script>
 
+<script type="text/javascript" src="{{ url::asset('angularjs/angular-local-storage.min.js') }}"></script>
+  
+  <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<!-- <script src="{{ URL::asset('admin/bower_components/jquery/dist/jquery.min.js') }}"></script> -->
+
+<!-- <script src="{{ URL::asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }} "></script> -->
+
     
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDveObUCdokitvhKOSVSpk6R-Fwn2WpFA4&callback=initMap"
+  type="text/javascript"></script>
+
 <script>
  $(".button-collapse").sideNav();
 
@@ -50,7 +60,33 @@
       complete: function() {  } // Callback for Modal close
     }
   );
-      
+
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    format: 'yyyy/mm/dd',
+    closeOnSelect: false // Close upon selecting a date,
+  });
+
+
+  // $('select').material_select();
+
+
+  function initMap() {
+        var uluru = {lat:21.192134497641412 , lng: 81.34946823120117};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+
 </script>
 
     </body>

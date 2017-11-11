@@ -12,7 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UsergroupsTableSeeder::class);
-        $this->call(ApkPermissionsTableSeeder::class);
+        // $this->call(ApkPermissionsTableSeeder::class);
         $this->call(PlansTableSeeder::class);
     }
 }

@@ -1,5 +1,5 @@
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini" >
 <!-- Site wrapper -->
 <div class="wrapper">
 
@@ -7,9 +7,9 @@
     <!-- Logo -->
     <a href="#" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>SERVOZO</b>VOZO</span>
+      <span class="logo-mini"><b>e-life</b>style</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>SERVOZO</b></span>
+      <span class="logo-lg"><b>elifestyle</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -26,13 +26,13 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="hidden-xs">Servozo Admin </span>
+              <span class="hidden-xs">e-Lifestyle Admin </span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
                 <p>
-                  Servozo Admin
+                  e-Lifestyle Admin
                 </p>
               </li>
               <li class="user-footer">
@@ -40,7 +40,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>

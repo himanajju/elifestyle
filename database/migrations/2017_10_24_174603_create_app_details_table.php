@@ -24,16 +24,11 @@ class CreateAppDetailsTable extends Migration
                     ->onDelete('cascade');
         $table->string('version');
         $table->string('apk_path');
-        $table->biginteger('api_level_id')
-                    ->foreign()
-                    ->references('id')
-                    ->on('app_versions')
-                    ->onDelete('cascade');
         $table->string('developer');
+        $table->string('app_package');
         $table->enum('is_active',[1,0])
                     ->commets('1 for active user')
                     ->default(1);
-        $table->json('permissions');   
         $table->timestamps();
 
     });

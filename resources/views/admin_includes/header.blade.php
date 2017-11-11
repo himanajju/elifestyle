@@ -1,9 +1,22 @@
+<?php 
+session_start();
+
+  // if($_SESSSION['user']){
+
+  //   echo $_SESSSION['user']['email'];
+
+  // }
+$_SESSSION['x']='vasgcbhn';
+  echo "cfgvbhnj";
+  echo isset($_SESSSION['user']);
+  ?>
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Servozo</title>
+  <title>e-lifestyle</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -25,6 +38,24 @@
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+
+<script type="text/javascript" src="{{ url::asset('angularjs/ng-img-crop.css') }}"></script>
+  
+<style>
+    .cropArea {
+      background: #E4E4E4;
+      overflow: hidden;
+      width:300px;
+      height:250px;
+    }
+
+    img-crop{width:100%;height:100%;display:block;position:relative;overflow:hidden}img-crop canvas{display:block;position:absolute;top:50%;left:50%;outline:0;-webkit-tap-highlight-color:transparent}
+
+  </style>
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+
+

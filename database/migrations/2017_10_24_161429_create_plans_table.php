@@ -18,6 +18,7 @@ class CreatePlansTable extends Migration
         
         $table->bigIncrements('id');
         $table->string('plan_title');
+        $table->float('amount',8,2)->default(0.00);
         $table->timestamps();
 
     });

@@ -1,14 +1,10 @@
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
+    <strong>Copyright &copy; 2017 <a href="https://adminlte.io">e-lifestyle</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -219,6 +215,12 @@
 <script src="{{ URL::asset('admin/bower_components/fastclick/lib/fastclick.js') }} "></script>
 <!-- AdminLTE App -->
 <script src="{{ URL::asset('admin/dist/js/adminlte.min.js') }} "></script>
+
+<script type="text/javascript" src="{{ url::asset('angularjs/app.js') }}"></script>
+
+<script type="text/javascript" src="{{ url::asset('angularjs/ui-bootstrap-tpls-2.5.0.min.js') }}"></script>
+
+<script type="text/javascript" src="{{ url::asset('angularjs/ng-img-crop.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ URL::asset('admin/dist/js/demo.js') }} "></script>
 <script>

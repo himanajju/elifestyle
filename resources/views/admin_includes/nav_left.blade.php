@@ -9,26 +9,39 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
-          <a href="#">
+          <a href="{{url('/admin/dash')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
+              </a>
           
         </li>
 
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-add"></i><span>User</span>
+          <i class="fa fa-user"></i><span>User</span>
           <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-angle-left  pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-circle-o"></i>Add</a><li>
+          <li><a href="{{url('/admin/add/usergroup')}}"><i class="fa fa-circle-o fa-user"></i>Add Usergroup</a></li>
+          <li><a href="{{url('/admin/add/user')}}"><i class="fa fa-circle-o fa-user"></i>Add User</a></li>
+          <li><a href="{{url('/admin/add/plan')}}"><i class="fa fa-circle-o fa-dropbox"></i>Add Plan</a></li>
           </ul>
-          <li>
+          </li>
+            
+      <li class="treeview">
+        <a href="#">
+          <i class="fa  fa-android"></i><span>App</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left  pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{url('/admin/add/app-permission')}}"><i class="fa fa-circle-o fa-user"></i>Add App Permission</a></li>
+          <li><a href="{{url('/admin/add/app-category')}}"><i class="fa fa-circle-o fa-user"></i>Add Category</a></li>
+          <li><a href="{{url('/admin/add/app-register')}}"><i class="fa fa-circle-o fa-dropbox"></i>Register App</a></li>
+          </ul>
+          </li>
             </ul>
     </section>
     <!-- /.sidebar -->
@@ -37,19 +50,4 @@
   <!-- =============================================== -->
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Blank page
-        <small>it all starts here</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
-      </ol>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+  

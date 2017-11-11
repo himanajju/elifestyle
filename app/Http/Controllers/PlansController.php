@@ -22,6 +22,27 @@ class PlansController extends Controller
     public function index()
     {
         //
+        $planOBJ = Plan::all(['id','plan_title','amount']);
+                if(!$planOBJ->isEmpty()){
+                    //return to client
+                    $response = [ 
+                        'status'=>200,
+                        'message'=>'all plan fetched scucessfully.',
+                        'data'=>$planOBJ
+                    ];
+
+                }else{
+
+                    //return to client
+                    $response = [
+                        'status' => 501,
+                        'message' => 'Oops!! something went wrong please try again later.'
+                    ];
+                }
+                // print_r($planOBJ);
+
+                return response()->json($response);
+                exit;
     }
 
     /**
@@ -45,8 +66,8 @@ class PlansController extends Controller
         //setting Validator rules for all fields
         $Validator = Validator::make($request->
             toArray(),[
-            'plan_title' => 'required'
-
+            'plan_title' => 'required',
+            'amount'=>'required'
             ]);
 
         if($Validator->fails()){
@@ -61,10 +82,9 @@ class PlansController extends Controller
                 DB::beginTransaction();
 
                 $planOBJ = new Plan();
-                // print_r($planOBJ);
-
+               
                 $planOBJ->plan_title = $request->input('plan_title');
-                
+                $planOBJ->amount = $request->input('amount'); 
                 
                 
                 try{
@@ -74,10 +94,13 @@ class PlansController extends Controller
                     $planOBJ->save();
                         DB::commit();
 
+                    $planOBJ = Plan::where('plan_title','=',$request->input('plan_title'))->get()->last();
+
                         //return to client
                         $response = [
                             'status' => 200,
-                            'message' => 'registration Scucessfull.'
+                            'message' => 'registration Scucessfull.',
+                            'data'=>$planOBJ
                         ];
                 }catch(\Exception $e){
                     DB::rollback();
@@ -91,11 +114,6 @@ class PlansController extends Controller
 
         }
 
-        if($request->input('view')){
-            return redirect('/add/user')->with('response',$response);
-        }
-
-
         return response()->json($response);
         exit;
     }
@@ -108,7 +126,34 @@ class PlansController extends Controller
      */
     public function show($id)
     {
-        //
+        //getting Plan detials
+        $planOBJ = Plan::where('id','=',$id)->get();
+
+        if(!$planOBJ->isEmpty()){
+            $planOBJ= $planOBJ->first();
+            $responseData = array(
+                    'plan_id' => $planOBJ->id,
+                    'plan_title'=>$planOBJ->plan_title,
+                    'amount' => $planOBJ->amount
+                );
+
+            //return to client
+            $response = [
+                'status' => 200,
+                'message' => 'Plan details fetched scucessfully.',
+                'data' => $responseData
+            ];
+        }else{
+
+            //return to client
+            $response = [
+                'status'=>501,
+                'message'=>'Plan does not exists'
+            ];
+        }
+
+        return response()->json($response);
+        exit;
     }
 
     /**
@@ -119,7 +164,33 @@ class PlansController extends Controller
      */
     public function edit($id)
     {
-        //
+        //getting Plan detials
+        $planOBJ = Plan::where('id','=',$id)->get();
+
+        if(!$planOBJ->isEmpty()){
+            $responseData = array(
+                    'plan_id' => $planOBJ->id,
+                    'plan_title'=>$planOBJ->plan_title
+                );
+
+            //return to client
+            $response = [
+                'status' => 200,
+                'message' => 'Plan details fetched scucessfully for edit.',
+                'data' => $responseData
+            ];
+        }else{
+
+            //return to client
+            $response = [
+                'status'=>501,
+                'message'=>'Plan does not exists for edit'
+            ];
+        }
+
+        return response()->json($response);
+        exit;
+
     }
 
     /**
@@ -131,7 +202,60 @@ class PlansController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //setting validation rules for all fields
+        $validation = Validator::make($request->toArray(),[
+            'plan_title' => 'required',
+            'amount'=>'required'
+            ]);
+
+        if($validation->fails()){
+            //validation errors
+            $response = ['status'=>500,
+                        'message' => 'validation failed',
+                        'errors'=> $validation->errors()
+                        ];
+
+        }else{
+            DB::beginTransaction();
+            $PlanExistOBJ = Plan::where('id','=',$id)->get();
+            if(!$PlanExistOBJ->isEmpty()){
+            try{
+
+                //saving data
+                Plan::where('id','=',$id)->update([
+                    'plan_title'=>$request->input('plan_title'),
+                    'amount'=>$request->input('amount')
+                    ]);
+                DB::commit();
+
+                $planOBJ = Plan::where('id','=',$id)->get();
+
+                //return to client
+                $response = [
+                    'status'=>200,
+                    'message' => 'update scucessfull.',
+                    'data'=> $planOBJ
+                ];
+            }catch(\Exception $e){
+                //return to client
+                $response = [
+                        'status'=>501,
+                        'message' => 'Oops!! something went wrong please try again later.',
+                        'errors' => $e
+                    ];
+            }
+        }else{
+            $response = [
+                        'status'=>501,
+                        'message' => 'Plan does not exists.'
+                    ];
+        }
+
+
+        }
+        return response()->json($response);
+        exit;
+
     }
 
     /**
@@ -142,6 +266,27 @@ class PlansController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        //getting Plan detials
+        $planOBJ = Plan::where('id','=',$id)->get();
+
+        if(!$planOBJ->isEmpty()){
+            Plan::where('id','=',$id)->delete();
+            //return to client
+            $response = [
+                'status' => 200,
+                'message' => 'Plan is scucessfully for deleted.',
+
+            ];
+        }else{
+
+            //return to client
+            $response = [
+                'status'=>501,
+                'message'=>'Plan does not exists for edit'
+            ];
+        }
+
+        return response()->json($response);
+        exit;
+    }    
 }

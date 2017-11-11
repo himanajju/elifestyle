@@ -17,7 +17,6 @@ class CreateUsersTable extends Migration
            Schema::create('users', function (Blueprint $table) {
         
             $table->bigIncrements('id');
-            $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->biginteger('user_type_id')
@@ -26,21 +25,22 @@ class CreateUsersTable extends Migration
                     ->on('usergroups')
                     ->onDelete('cascade');
             $table->string('fname');
-            $table->string('lname');
+            $table->string('lname')->nullable();
             $table->enum('sex',['male','female', 'trigender']);
-            $table->date('dob');
-            $table->string('contact_no');
+            $table->date('dob')->nullable();
+            $table->string('contact_no')->nullable();
             $table->string('device_id')->nullable();
             $table->enum('is_active',[1,0])
                     ->commets('1 for active user')
                     ->default(1);
             $table->enum('is_plan',[1,0])
                     ->commets('1 for active user')
-                    ->default(1);
+                    ->default(0);
             $table->timestamp('valid_till')->nullable();
             $table->enum('is_blocked',[1,0])
-                    ->default(1)
+                    ->default(0)
                     ->commets('1 for blocked');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

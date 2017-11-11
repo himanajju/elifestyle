@@ -18,8 +18,8 @@ class CreateAppsTable extends Migration
         
         $table->bigIncrements('id');
         $table->string('title');
-        $table->longText('description');
-        $table->string('logo_path');
+        $table->longText('description')->nullable();
+        $table->string('logo_path')->nullable();
         $table->biginteger('plan_id')
                     ->foreign()
                     ->references('id')
