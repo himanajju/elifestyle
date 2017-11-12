@@ -1,14 +1,20 @@
 <?php 
 session_start();
-
-  // if($_SESSSION['user']){
-
-  //   echo $_SESSSION['user']['email'];
-
-  // }
-$_SESSSION['x']='vasgcbhn';
-  echo "cfgvbhnj";
-  echo isset($_SESSSION['user']);
+  if(isset($_SESSION['user'])){
+    if($_SESSION['user']['group_title']!="ADMIN")
+    {
+      die('
+<script type="text/javascript">
+  window.location.replace("/elifestyle/public/");
+</script>');
+    }
+  }else{
+    die('
+<script type="text/javascript">
+  window.location.replace("/elifestyle/public/");
+</script>');
+  }
+  
   ?>
 
 <!DOCTYPE html>

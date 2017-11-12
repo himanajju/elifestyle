@@ -8,10 +8,10 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="treeview">
+        <li class="treeview"><li>
           <a href="{{url('/admin/dash')}}">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-              </a>
+              </a></li>
           
         </li>
 
@@ -37,7 +37,6 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="{{url('/admin/add/app-permission')}}"><i class="fa fa-circle-o fa-user"></i>Add App Permission</a></li>
           <li><a href="{{url('/admin/add/app-category')}}"><i class="fa fa-circle-o fa-user"></i>Add Category</a></li>
           <li><a href="{{url('/admin/add/app-register')}}"><i class="fa fa-circle-o fa-dropbox"></i>Register App</a></li>
           </ul>

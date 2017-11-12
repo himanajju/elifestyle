@@ -26,13 +26,28 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="hidden-xs">e-Lifestyle Admin </span>
+              <span class="hidden-xs">
+                  <?php
+                    if(isset($_SESSION['user'])){
+                      if(isset($_SESSION['user']['fname'])){
+                        echo $_SESSION['user']['fname']." ".$_SESSION['user']['lname'];
+                      }
+                    }
+                  ?>
+               Admin </span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
                 <p>
-                  e-Lifestyle Admin
+                  <?php
+                    if(isset($_SESSION['user'])){
+                      if(isset($_SESSION['user']['fname'])){
+                        echo $_SESSION['user']['fname']." ".$_SESSION['user']['lname'];
+                      }
+                    }
+                  ?>
+                  Admin
                 </p>
               </li>
               <li class="user-footer">
