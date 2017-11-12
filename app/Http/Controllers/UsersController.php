@@ -177,6 +177,15 @@ class UsersController extends Controller
                         DB::commit();
 
                     $userOBJ = User::where('email','=',$request->input('email'))->get();
+
+
+                    if(!$userOBJ->isEmpty()){
+                        $usermailOBJ = $userOBJ->first();
+                    
+                        // print_r($usermailOBJ);die;
+                        app('App\Http\Controllers\MailController')->html_email($usermailOBJ->fname.' '.$usermailOBJ->lname,$usermailOBJ->email,'<b>registration Successfull</b><br>Thankyou for registration. Your email is '.$usermailOBJ->email.' and password is '.$usermailOBJ->password.'<br>Your contact no is '.$usermailOBJ->contact_no.'<br> Hope you will happy with us.','wellcome to elifestyle.');
+
+                    }
                     if($usersgroupOBJ->id!=1 && $request->input('is_plan') && $request->input('plan_id') && $request->input('subscription_id')){
                     // $newUserOBJ->is_plan = '1';
                         if(!$userOBJ->isEmpty()){

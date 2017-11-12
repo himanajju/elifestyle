@@ -137,7 +137,9 @@ Route::post('login-checkapi','AuthController@loginCheckApi');
 
 Route::get('logout','AuthController@logout');
 
-Route::get('app-user','AuthController@apiForAndroid');
+Route::post('app-user','AuthController@apiForAndroid');
 
 
 Route::resource('user','UsersController',['only'=>['index','show']]);
+
+Route::get('sendmail','MailController@basic_email');

@@ -25,7 +25,7 @@ class AppDetailsController extends Controller
     public function index()
     {
         //fetching all data
-        $appDetailOBJ = AppDetail::leftJoin('apps','app_details.app_id','=','apps.id')->select('app_details.id','app_details.version','app_details.apk_path','app_details.developer','apps.title','apps.description','logo_path','app_details.app_package_name')->get();
+        $appDetailOBJ = AppDetail::leftJoin('apps','app_details.app_id','=','apps.id')->select('app_details.id','app_details.version','app_details.apk_path','app_details.developer','apps.title','apps.description','logo_path','app_details.app_package')->get();
         if(!$appDetailOBJ->isEmpty()){
 
             
@@ -93,7 +93,7 @@ class AppDetailsController extends Controller
                         $appDetailOBJ->version = $request->input('version');
                         $appDetailOBJ->apk_path = $request->input('apk_path');
                         $appDetailOBJ->developer = $request->input('developer');
-                        $appDetailOBJ->app_package_name = $request->input('app_package_name');
+                        $appDetailOBJ->app_package = $request->input('app_package_name');
 
                         // $appDetailOBJ->apps()->associate($AppExsitOBJ);
 
@@ -146,7 +146,7 @@ class AppDetailsController extends Controller
     public function show($id)
     {
         //fetching all data
-        $appDetailOBJ = AppDetail::leftJoin('apps','app_details.app_id','=','apps.id')->select('app_details.id','app_details.app_id','app_details.version','app_details.apk_path','app_details.developer','apps.title','apps.description','logo_path','app_details.app_package_name')->where('app_details.app_id','=',$id)->get();
+        $appDetailOBJ = AppDetail::leftJoin('apps','app_details.app_id','=','apps.id')->select('app_details.id','app_details.app_id','app_details.version','app_details.apk_path','app_details.developer','apps.title','apps.description','logo_path','app_details.app_package')->where('app_details.app_id','=',$id)->get();
         if(!$appDetailOBJ->isEmpty()){
 
             
@@ -173,7 +173,7 @@ class AppDetailsController extends Controller
     public function showLast($id)
     {
         //fetching all data
-        $appDetailOBJ = AppDetail::leftJoin('apps','app_details.app_id','=','apps.id')->select('app_details.id','app_details.app_id','app_details.version','app_details.apk_path','app_details.developer','apps.title','apps.description','logo_path','app_details.app_package_name','apps.plan_id')->where('app_details.app_id','=',$id)->get();
+        $appDetailOBJ = AppDetail::leftJoin('apps','app_details.app_id','=','apps.id')->select('app_details.id','app_details.app_id','app_details.version','app_details.apk_path','app_details.developer','apps.title','apps.description','logo_path','app_details.app_package','apps.plan_id')->where('app_details.app_id','=',$id)->get();
         if(!$appDetailOBJ->isEmpty()){
 
             
@@ -224,7 +224,7 @@ class AppDetailsController extends Controller
             'version' => 'required',
             'apk_path' => 'required',
             'developer' => 'required',
-            'app_package_name'=>'required'
+            'app_package'=>'required'
             ]);
 
         if($Validator->fails()){
@@ -242,19 +242,21 @@ class AppDetailsController extends Controller
                             if(!$AppExsitOBJ->isEmpty()){
 
                                     DB::beginTransaction();    
-                                    $appDetailOBJ = new AppDetail();
-                                    $appDetailOBJ->version = $request->input('version');
-                                    $appDetailOBJ->apk_path = $request->input('apk_path');
-                                    $appDetailOBJ->developer = $request->input('developer');
-                                    $appDetailOBJ->app_package_name = $request->input('app_package_name');
-                                    // $appDetailOBJ->apps()->associate($AppExsitOBJ);
-
-                                    $appDetailOBJ->app_id = $request->input('app_id');
                                     try{
+                                        
+
+                                        AppDetail::where('id','=',$id)->update([
+                                                    'version'=>$request->input('version'),
+                                                    'apk_path'=>$request->input('apk_path'),
+                                                    'developer'=>$request->input('developer'),
+                                                    'app_package'=>$request->input('app_package') 
+                                                ]);
+                                                
                                         //saving data
-                                            $appDetailOBJ->save();
+                                           
+
                                             DB::commit();
-                                            $appObj = AppDetail::get()->last();
+                                            $appObj = AppDetail::where('id','=',$id)->get();
                                         
 
                                             //return to client

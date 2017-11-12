@@ -140,7 +140,7 @@
             <button class="btn btn-danger btn-xs" ng-click="deleteAppReg($index)" >Delete</button>
         </td>
         <td ng-if="data.app_detail_id!=0"><a href="#" ng-click="initAppDetail($index)">more</a></td>
-        <td ng-if="data.app_detail_id==0"><a href="#" ng-click="initaddAppDetail($index)">add app detail</a></td>
+        <td ng-if="data.app_detail_id==0"><a href="#" ng-click="initaddAppDetail($index, data.id)">add app detail</a></td>
        </tr>
           </tbody>
       </table>
@@ -273,12 +273,10 @@
         <div >
       <!-- Buttons, labels, and many other things can be placed here! -->
       <!-- Here is a label for example -->
-      <span><button type="button" class="btn btn-primary" ng-click="addMoreAppDetails(appRegDetail.id)">
+    <!--   <span><button type="button" class="btn btn-primary" ng-click="addMoreAppDetails(appRegDetail.id)">
   <i class="fa fa-fw  fa-plus"></i>
 </button></span>
-     
-</button></span>
-
+     -->
     </div>
 
        
@@ -342,7 +340,7 @@
   </div>
   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
     <div class="input-group-addon"><i class="fa fa-fw fa-link"></i></div>
-    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter app package name like com.elifestle.main" name="app_package_name" ng-model="editDetail.app_package_name">
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Enter app package name like com.elifestle.main" name="app_package_name" ng-model="editDetail.app_package">
   </div>
   <div class="input-group mb-2 mr-sm-2 mb-sm-0">
     <div class="input-group-addon"><i class="fa fa-fw fa-desktop"></i></div>

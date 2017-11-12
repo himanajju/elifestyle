@@ -1037,10 +1037,19 @@ $scope.myImage='';
 
 
    
-  $scope.initaddAppDetail = function(index){
+  $scope.initaddAppDetail = function(index,$id){
     $scope.errors = [];
-    $scope.editDetail = $scope.appRegDatas[index];
-    console.log('dfgh'+$scope.editDetail);
+    angular.forEach($scope.appRegDatas, function(x, key){
+      if(x.id==$id){
+        $scope.editDetail = x;
+        // console.log(x);
+      }
+      // console.log("rftgh");
+    });
+    // console.log($scope.editDetail);
+
+    // $scope.editDetail = $scope.appRegDatas[index];
+    // console.log('dfgh'+$scope.editDetail);
     $('#add_detail').modal('show');
   }
 
@@ -1150,12 +1159,13 @@ $scope.myImage='';
 
     //update the give appdetail
     $scope.updateAppDetail = function () {
-      $http.patch(url+"api/admin/update/app-detail/"+$scope.editDetailsData.id,{
+      console.log($scope.editDetail);
+      $http.patch(url+"api/admin/update/app-detail/"+$scope.editDetail.id,{
         app_id: $scope.editDetail.app_id,
         version: $scope.editDetail.version,
         apk_path: $scope.editDetail.apk_path,
         developer: $scope.editDetail.developer,
-        app_package_name: $scope.editDetail.app_package_name
+        app_package: $scope.editDetail.app_package
       }).then(function success(e){
         $scope.errors = [];
 
@@ -1167,9 +1177,12 @@ $scope.myImage='';
           }else if(e.data.status==500){
               $scope.recordAppDetailErrors(e);
               console.log("errors "+e.data.message);
+              console.log(e.data.errors);
 
           }else if(e.data.status == 501){
+            console.log(e.data.status);
             $scope.errors.push(e.data.message);
+            console.log(e.data.error);
           }
       },  function error(error){
         $scope.recordAppDetailErrors(error);
@@ -1238,7 +1251,7 @@ $scope.myImage='';
           $scope.errors.push(error.data.errors.developer[0]);
         }
         if(error.data.errors.app_package_name){
-          $scope.errors.push(error.data.errors.app_package_name[0]);
+          $scope.errors.push(error.data.errors.app_package[0]);
         }
 
 

@@ -14,5 +14,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UsergroupsTableSeeder::class);
         // $this->call(ApkPermissionsTableSeeder::class);
         $this->call(PlansTableSeeder::class);
+        $this->call(UsersTableSeeder::class);
     }
 }

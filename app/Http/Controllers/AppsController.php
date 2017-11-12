@@ -26,7 +26,8 @@ class AppsController extends Controller
      */
     public function index()
     {
-        $AppOBJ = App::leftJoin('plans','apps.plan_id','=','plans.id')->leftJoin('app_categories','apps.category_id','=','app_categories.id')->leftJoin('app_details','apps.id','=','app_details.app_id')->select(\DB::raw('apps.id,apps.title,apps.description,apps.logo_path, app_categories.title as  app_category_title, apps.is_active,plans.plan_title as plan_title,plans.id as plan_id, (select count(*) from app_details ad where ad.app_id = apps.id) as app_detail_id, apps.created_at'))->distinct()->get();
+    //     $AppOBJ = App::leftJoin('plans','apps.plan_id','=','plans.id')->leftJoin('app_categories','apps.category_id','=','app_categories.id')->leftJoin('app_details','apps.id','=','app_details.app_id')->select(\DB::raw('apps.id,apps.title,apps.description,apps.logo_path, app_categories.title as  app_category_title, apps.is_active,plans.plan_title as plan_title,plans.id as plan_id, (select count(*) from app_details ad where ad.app_id = apps.id) as app_detail_id, apps.created_at'))->distinct()->get();
+        $AppOBJ = App::leftJoin('plans','apps.plan_id','=','plans.id')->leftJoin('app_categories','apps.category_id','=','app_categories.id')->leftJoin('app_details','apps.id','=','app_details.app_id')->select(\DB::raw('apps.id,apps.title,apps.description,apps.logo_path, app_categories.title as  app_category_title, apps.is_active,plans.plan_title as plan_title,plans.id as plan_id, app_details.apk_path, app_details.version, app_details.app_package , apps.created_at'))->distinct()->get();
                 if(!$AppOBJ->isEmpty()){
                     //return to client
                     $response = [ 
